@@ -1,0 +1,26 @@
+#include <Servo.h>
+Servo myservo;
+int ldr_pin = A0;
+int deger = 0;
+void setup() {
+  Serial.begin(9600);
+  myservo.attach(9);
+
+}
+void loop() {
+  int deger = analogRead(ldr_pin);
+  int pot = analogRead(A0);
+Serial.println(pot);
+  
+  if(deger > 700 && deger < 1000)
+  {
+    myservo.write(180);
+    delay(500);
+  }
+  if(deger > 1000 && deger < 1023)
+  {
+    myservo.write(90);
+    delay(500);
+  }
+ 
+}
